@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            border: 1px solid black;
+        }
+
+        html {
+            border: 1px solid red;
+        }
+
+        body {
+            border: 1px solid blue;
+        }
+
+        div {
+            height: 100px;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+
+        #id {
+            background-color: blueviolet;
+        }
+
+        .class {
+            background-color: yellow;
+        }
+
+        div>div {
+            background-color: pink;
+        }
+
+        .class2 {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div id="id" class="class2">아이디</div> <!--id가 class보다 우선순위가 높음-->
+    <div class="class">클래스</div>
+    <div>
+        <div>자식</div>
+    </div>
+</body>
+
+</html>

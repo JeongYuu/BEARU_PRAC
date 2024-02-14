@@ -1,0 +1,26 @@
+#id{
+    font-size: 40px;
+    padding: 20px;
+    border:1px solid black;
+    margin-bottom: 40px;
+}
+.class{
+    border: 1px solid black;
+}
+div{
+    font-weight: 900;
+    width: 500px;
+    height: 400px;
+}
+*{
+    border: 1px solid black;
+}
+div{
+    width: 50px;
+    height: 40px;
+}
+span{
+    display:inline-block;
+    width: 50px;
+    height: 40px;
+}
