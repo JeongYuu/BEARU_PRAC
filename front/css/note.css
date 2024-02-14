@@ -1,0 +1,106 @@
+*{
+    padding:0; /*내부 간격 없애기*/
+    margin:0;
+}
+a{ /*a태그 초기화*/
+    text-decoration: none;
+    color: black;
+}
+.container{
+    width: 800px;
+    margin: 0 auto; /*container가 가운데로 옮*/
+}
+header{
+    text-align: center;
+    border:10px solid rgb(190, 186, 250);
+    height: 70px;
+    padding: 20px;
+}
+header > h1{
+    font-size: 70px;
+    font-weight: lighter;
+    font-family: 'Jua', cursive;
+}
+
+.slogan{
+  
+    background-color: rgb(223, 222, 246);
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align: center;
+    color:white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    margin-top:20px;
+    font-family: 'Jua', cursive;
+    font-size:40px;
+}
+
+.user-input-container{
+    
+    margin-top:40px;
+}
+
+.user-input{
+    display:flex;
+    flex-direction: column;
+}
+
+.user-input > input{
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    outline-style: none;
+    border:none;
+    border-bottom: 2px solid rgb(117, 109, 235);
+}
+
+.user-input >span{
+    font-weight: lighter;
+    font-family: 'Jua', cursive;
+    font-size:25px;
+    padding-left:15px;
+    display:inline-block;
+    height:30px;
+}
+
+.user-input > textarea{
+    border: 2px solid rgb(117, 109, 235);
+    resize: none;
+    height:300px;
+    outline-style: none;
+}
+
+.user-input.user-input-content{
+    margin-top: 40px;
+}
+
+.button-wrapper{
+    margin-top: 20px;
+    display:flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.button-wrapper > button{
+    border: 1px solid black;
+    padding: 10px 10px 15px 15px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.button-wrapper > a > button{
+    border: 1px solid black;
+    padding: 10px 10px 15px 15px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.cancel-btn{
+   
+}
+
+.create-btn{
+    background-color: rgb(164, 158, 244) !important;
+    color: white;
+}

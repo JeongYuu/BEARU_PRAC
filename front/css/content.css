@@ -1,0 +1,43 @@
+*{
+    padding:0; /*내부 간격 없애기*/
+    margin:0;
+}
+a{ /*a태그 초기화*/
+    text-decoration: none;
+    color: black;
+}
+.container{
+    width: 800px;
+    margin: 0 auto; /*container가 가운데로 옮*/
+}
+header{
+    text-align: center;
+    border:10px solid rgb(190, 186, 250);
+    height: 70px;
+    padding: 20px;
+}
+header > h1{
+    font-size: 70px;
+    font-weight: lighter;
+    font-family: 'Jua', cursive;
+}
+
+.memo-container{
+    margin-top:50px;
+}
+
+.title{
+    font-size: 35px;
+}
+
+.description{
+    font-size: 20px;
+}
+
+.createdAt{
+    text-align: right;
+}
+
+.content{
+    margin-top: 20px;
+}
