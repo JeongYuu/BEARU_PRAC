@@ -15,6 +15,7 @@ header{
     border:10px solid rgb(190, 186, 250);
     height: 70px;
     padding: 20px;
+    
 }
 header > h1{
     font-size: 70px;
@@ -22,6 +23,22 @@ header > h1{
     font-family: 'Jua', cursive;
 }
 
+
+div > div{
+    margin-top: 20px;
+    display:flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.aclass > button{
+    border: 1px solid black;
+    padding: 10px 15px 10px 15px;
+    background-color: rgb(164, 158, 244);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
 ul{
     margin-top:50px;
     list-style: none; /*list 앞에 점 없애기 */
