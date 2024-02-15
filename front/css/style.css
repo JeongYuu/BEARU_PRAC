@@ -46,21 +46,32 @@ ul{
     
 }
 ul > li{
-    border:1px solid black;
+    border-bottom: 3px dashed rgb(164, 158, 244);
     margin:10px;
     padding:20px;
     margin-bottom:10px;
     
 }
-ul > li > a > h1{
+ul>li>.list-header{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul > li > .list-header> a > h1{
     font-size:30px;
+}
+ul>li>.list-header >div >span{
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
 }
 .description{
     font-size:18px; 
     margin-top:30px;
     
 }
-.createdAT{
+.createdAt{
     text-align: right;
     font-size:15px; 
     font-family: 'Jua', cursive;

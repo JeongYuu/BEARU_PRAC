@@ -100,7 +100,7 @@ header > h1{
    
 }
 
-.create-btn{
+.create-btn,.modify-btn{
     background-color: rgb(164, 158, 244) !important;
     color: white;
 }
