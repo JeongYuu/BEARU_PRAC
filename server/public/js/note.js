@@ -2,55 +2,69 @@ const createButton = document.querySelector(".create-btn"); //(DOM 사용)HTML �
 const modifyButton = document.querySelector(".modify-btn");
 
 modifyButton.addEventListener("click",function(event){
-    const data = getData(); 
-
+    // const data = getData(); 
+    const qs = getQueryString();
     const ele = getElement();
+
     const title = ele.title.value;
     const description = ele.description.value;
     const content = ele.content.value;
-
-    const saveData = JSON.parse(localStorage.getItem("memo"));
+    const id=qs.id;
     
-    for(let i=0; i< saveData.length; i++){
-        if(saveData[i].id === Number(data.id)){
-            saveData[i].title = title;
-            saveData[i].description = description;
-            saveData[i].content = content;
+    fetch("http://localhost:3000/modify",{
+        method:"put",
+        headers:{
+            "content-type" : "application/json",
+        },
+        body:JSON.stringify({
+            title: title,
+            description: description,
+            content: content,
+            id: id,
+        }),
+    })
+    .then(function(result){
+        return result.json();
+    })
+    .then(function(data){
+        console.log(data);
+        if(data.status === "success"){
+            window.location.href = "/";
         }
-    }
-    localStorage.setItem("memo",JSON.stringify(saveData));
-
-    window.location.href="/";
+    })
+    .catch(function(error){
+        console.log(error);
+    });
 });
 
-createButton.addEventListener("click", function (event) {
-    const title = document.querySelector(".title");
-    const description = document.querySelector(".description");
-    const content = document.querySelector(".content");
+// createButton.addEventListener("click", function (event) {
+//     const title = document.querySelector(".title");
+//     const description = document.querySelector(".description");
+//     const content = document.querySelector(".content");
 
-    const now = new Date();
+//     const now = new Date();
 
-    const saveValue = {
-        title: title.value,
-        description: description.value,
-        content: content.value,
-        createdAt: now.toLocaleDateString(),
-    };
+//     const saveValue = {
+//         title: title.value,
+//         description: description.value,
+//         content: content.value,
+//         createdAt: now.toLocaleDateString(),
+//     };
 
-    const saveData = localStorage.getItem("memo");
-    if (saveData === null) {
-        const array = [];
-        array.push(saveValue);
-        saveValue.id = 1;
-        localStorage.setItem("memo", JSON.stringify(array));
-    } else {
-        const transform = JSON.parse(saveData);
-        saveValue.id = transform.length + 1;
-        transform.push(saveValue);
-        localStorage.setItem("memo", JSON.stringify(transform));
-    }
-    window.location.href="/";
-});
+//     const saveData = localStorage.getItem("memo");
+//     if (saveData === null) {
+//         const array = [];
+//         array.push(saveValue);
+//         saveValue.id = 1;
+//         localStorage.setItem("memo", JSON.stringify(array));
+//     } else {
+//         const transform = JSON.parse(saveData);
+//         saveValue.id = transform.length + 1;
+//         transform.push(saveValue);
+//         localStorage.setItem("memo", JSON.stringify(transform));
+//     }
+//     window.location.href="/";
+// });
 
 function renderPage() {
     const qs = getQueryString();
@@ -61,8 +75,18 @@ function renderPage() {
     } else if (qs.mode === "modify") {
         createButton.style.display = "none";
         modifyButton.style.display = "block";
-        const data = getData();
-        renderMemo(data); 
+        fetch("http://localhost:3000/list/"+qs.id,{
+            method:"get",
+        })
+        .then(function(result){
+            return result.json();
+        })
+        .then(function(data){
+            renderMemo(data);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
     }
 }
 
@@ -93,6 +117,7 @@ function renderMemo(data){
     const description = document.querySelector(".description");
     const content = document.querySelector(".content"); 
 
+    console.log(data);
     title.value=data.title;
     description.value=data.description;
     content.textContent = data.content;

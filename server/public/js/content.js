@@ -1,16 +1,17 @@
 function getData(){
-    const saveData = JSON.parse(localStorage.getItem("memo"));
     const id= getQueryString();
-
-    let data;
-
-    for(let i=0; i<saveData.length;i++){
-        if(saveData[i].id=== Number(id)){
-            data=saveData[i];
-        }
-    }
-
-    renderData(data);
+    fetch("http://localhost:3000/list/"+id,{
+            method:"get",
+        })
+        .then(function(result){
+            return result.json();
+        })
+        .then(function(data){
+            renderData(data);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
 }
 
 function getQueryString(){
@@ -25,12 +26,12 @@ function renderData(memo){
     const description = document.querySelector(".description");
     const createdAt = document.querySelector(".createdAt > span"); 
     const content = document.querySelector(".content");
-    
-    console.log(title, description, createdAt, content);
+    console.log(memo);
+
+    const now = new Date(memo.createAt);
     title.textContent = memo.title;
     description.textContent = memo.textContent;
-    createdAt.textContent = memo.createdAt;
+    createdAt.textContent = now.toLocaleDateString();
     content.textContent = memo.content;
 }
-
 getData();
