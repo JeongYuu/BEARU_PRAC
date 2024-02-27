@@ -2,7 +2,6 @@ const createButton = document.querySelector(".create-btn"); //(DOM 사용)HTML �
 const modifyButton = document.querySelector(".modify-btn");
 
 modifyButton.addEventListener("click",function(event){
-    // const data = getData(); 
     const qs = getQueryString();
     const ele = getElement();
 
@@ -36,35 +35,6 @@ modifyButton.addEventListener("click",function(event){
         console.log(error);
     });
 });
-
-// createButton.addEventListener("click", function (event) {
-//     const title = document.querySelector(".title");
-//     const description = document.querySelector(".description");
-//     const content = document.querySelector(".content");
-
-//     const now = new Date();
-
-//     const saveValue = {
-//         title: title.value,
-//         description: description.value,
-//         content: content.value,
-//         createdAt: now.toLocaleDateString(),
-//     };
-
-//     const saveData = localStorage.getItem("memo");
-//     if (saveData === null) {
-//         const array = [];
-//         array.push(saveValue);
-//         saveValue.id = 1;
-//         localStorage.setItem("memo", JSON.stringify(array));
-//     } else {
-//         const transform = JSON.parse(saveData);
-//         saveValue.id = transform.length + 1;
-//         transform.push(saveValue);
-//         localStorage.setItem("memo", JSON.stringify(transform));
-//     }
-//     window.location.href="/";
-// });
 
 function renderPage() {
     const qs = getQueryString();

@@ -58,7 +58,17 @@ app.put("/modify",function(request, response){
             response.status(500).json({message:"수정에 실패했습니다", status:fail});
         }
         response.status(200).json({message:"수정에 성공했습니다.",status:"success"});
-    })
+    });
+});
+
+app.delete("/delete",function(request,response){
+    conn.query("DELETE FROM list WHERE id =?",[request.body.id],function(err,result){
+        if(err){
+            console.log(err);
+            response.status(500).json({message:"삭제에 실패했습니다", status:fail});
+        }
+        response.status(200).json({message:"삭제에 성공했습니다.",status:"success"});
+    });
 });
 
 app.listen(3000,function(){
